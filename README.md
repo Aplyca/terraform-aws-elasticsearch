@@ -15,7 +15,6 @@ module "search" {
   newbits  = 10
   netnum  = 16
   azs     = ["us-east1"]
-  rt_id   = "rt-adfarwr"
   access_sg_ids = ["sg-rewr4sre"]
   access_cidrs = ["172.168.0.0/26"]
   storage = 25

@@ -14,12 +14,6 @@ resource "aws_subnet" "this" {
   tags = "${merge(var.tags, map("Name", "${var.name} ES ${count.index}"))}"
 }
 
-resource "aws_route_table_association" "this" {
-  count = "${length(aws_subnet.this.*.id)}"
-  subnet_id = "${element(aws_subnet.this.*.id, count.index)}"
-  route_table_id = "${var.rt_id}"
-}
-
 # ---------------------------------------
 # Network ACL DB
 # ---------------------------------------

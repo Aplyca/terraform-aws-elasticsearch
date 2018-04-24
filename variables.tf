@@ -29,10 +29,6 @@ variable "netnum" {
   default = 0
 }
 
-variable "rt_id" {
-  description = "Route Table Id to assing to the EFS subnet."
-}
-
 variable "access_cidrs" {
   description = "A list of Subnets CIDR Blocks to grant access"
   type        = "list"
