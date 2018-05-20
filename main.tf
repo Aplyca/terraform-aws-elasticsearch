@@ -125,9 +125,21 @@ resource "aws_elasticsearch_domain" "this" {
     automated_snapshot_start_hour = 1
   }
 
+  log_publishing_options {
+    log_type = "INDEX_SLOW_LOGS"
+    cloudwatch_log_group_arn = "${aws_cloudwatch_log_group.this.arn}"
+    enabled = "${var.enable_logs}"
+  }
+
   tags = "${merge(var.tags, map("Name", var.name))}"
 }
 
+resource "aws_cloudwatch_log_group" "this" {
+  count = "${var.enable_logs ? 1 : 0}"
+  name              = "${local.id}-ElasticSearch"
+  retention_in_days = 0
+  tags = "${merge(var.tags, map("Name", var.name))}"
+}
 
 resource "aws_elasticsearch_domain_policy" "this" {
   domain_name = "${aws_elasticsearch_domain.this.domain_name}"

@@ -59,3 +59,8 @@ variable "instances" {
   description = "Instance count"
   default     = 1
 }
+
+variable "enable_logs" {
+  description = "Enalbe CloudWatch Logs"
+  default     = false
+}
