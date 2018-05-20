@@ -136,7 +136,7 @@ resource "aws_elasticsearch_domain" "this" {
 
 resource "aws_cloudwatch_log_group" "this" {
   count = "${var.enable_logs ? 1 : 0}"
-  name              = "${local.id}-ElasticSearch"
+  name              = "${local.id}-ElasticSearch-Index"
   retention_in_days = 0
   tags = "${merge(var.tags, map("Name", var.name))}"
 }
