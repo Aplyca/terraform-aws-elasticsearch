@@ -164,3 +164,8 @@ resource "aws_elasticsearch_domain_policy" "this" {
 }
 POLICIES
 }
+
+resource "aws_cloudwatch_log_resource_policy" "this" {
+  policy_document = "${data.aws_iam_policy_document.this.json}"
+  policy_name     = "${local.id}-ElasticSearch-Index-Logs"
+}
