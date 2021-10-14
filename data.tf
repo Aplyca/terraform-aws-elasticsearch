@@ -9,7 +9,7 @@ data "aws_iam_policy_document" "this" {
       "logs:PutLogEvents",
     ]
 
-    resources = ["${aws_cloudwatch_log_group.this.arn}:*:*"]
+    resources = ["${aws_cloudwatch_log_group.this.arn}"]
 
     principals {
       identifiers = ["es.amazonaws.com"]
