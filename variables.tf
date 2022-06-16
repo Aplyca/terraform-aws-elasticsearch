@@ -5,13 +5,13 @@ variable "name" {
 
 variable "azs" {
   description = "A list of availability zones to associate with."
-  type        = "list"
+  type        = list
   default     = []
 }
 
 variable "access_sg_ids" {
   description = "A list of security groups Ids to grant access."
-  type        = "list"
+  type        = list
   default     = []
 }
 
@@ -31,7 +31,7 @@ variable "netnum" {
 
 variable "access_cidrs" {
   description = "A list of Subnets CIDR Blocks to grant access"
-  type        = "list"
+  type        = list
   default     = []
 }
 
